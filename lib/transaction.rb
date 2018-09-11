@@ -19,7 +19,7 @@ class Transaction
       @credit -= amt
     elsif amt == @credit
       @credit = 0
-    elsif amt < (@credit + MAX_DEBIT - @debit)
+    elsif amt <= (@credit + MAX_DEBIT - @debit)
       @debit += amt - @credit
       @credit = 0
     else
