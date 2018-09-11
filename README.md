@@ -1,5 +1,9 @@
 # bank_tech_test
 
+Pretty much did this in one afternoon. rubocop not passing due to long lines; I'll come back to that.  
+Did not understand what credit and debit is, so the transaction's credit and debit may be confusing.  
+Back onto job applications for me, byeeee.  
+
 ## Get it working
 1. Clone this repo  
 2. 'bundle install'  
