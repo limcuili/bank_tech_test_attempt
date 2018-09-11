@@ -12,7 +12,7 @@ describe Account do
 
     describe '#activity' do
       it 'has no activity' do
-        expect(new_account.activity).to match_array([])
+        expect(new_account.transactions).to match_array([])
       end
     end
   end
