@@ -42,12 +42,12 @@ class Account
   end
 
   def show
-    puts "  Date ||" + "  Credit ||" + "  Debit ||" + "  Balance ||"
+    puts "  Date ||" + "  Credit ||" + "  Debit ||" + "  Balance "
     @transactions.reverse.each do |transaction|
       puts "  #{transaction[:date]} ||" +
         "  #{transaction[:credit]} ||" +
         "  #{transaction[:debit]} ||" +
-        "  #{transaction[:balance]} ||"
+        "  #{transaction[:balance]} "
     end
   end
 
