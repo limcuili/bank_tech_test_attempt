@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class Transaction
   MAX_DEBIT = 50
-  attr_reader  :credit, :debit
+  attr_reader :credit, :debit
 
   def initialize
     @credit = 0
@@ -8,7 +10,8 @@ class Transaction
   end
 
   def deposit(amt)
-    fail ArgumentError.new("Please deposit a positive amount.") if amt.negative?
+    raise ArgumentError, 'Please deposit a positive amount.' if amt.negative?
+
     amt = amt.round(2)
     @credit += amt
   end
@@ -23,8 +26,7 @@ class Transaction
       @debit += amt - @credit
       @credit = 0
     else
-      raise ArgumentError.new("Error: Unable to have a debit over £#{MAX_DEBIT}. Your current credit is £#{@credit}.")
+      raise ArgumentError, "Error: Unable to have a debit over £#{MAX_DEBIT}. Your current credit is £#{@credit}."
     end
   end
-
 end

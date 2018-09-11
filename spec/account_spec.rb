@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'account'
 
 describe Account do
@@ -19,27 +21,27 @@ describe Account do
 
   describe '#deposit' do
     it 'pushes a deposit into the transactions array' do
-      allow(Time).to receive(:now).and_return(Time.new(2018,9,11,14,52,12))
+      allow(Time).to receive(:now).and_return(Time.new(2018, 9, 11, 14, 52, 12))
       account.deposit(100)
       expect(account.transactions).to match_array([{
-        :date => "11/09/2018 at 02:52PM",
-        :credit => 100,
-        :debit => nil,
-        :balance => 100
-      }])
+                                                    date: '11/09/2018 at 02:52PM',
+                                                    credit: 100,
+                                                    debit: nil,
+                                                    balance: 100
+                                                  }])
     end
   end
 
   describe '#withdraw' do
     it 'pushes a withdrawal into the transactions array' do
-      allow(Time).to receive(:now).and_return(Time.new(2018,9,11,14,52,12))
+      allow(Time).to receive(:now).and_return(Time.new(2018, 9, 11, 14, 52, 12))
       account.withdraw(30)
       expect(account.transactions).to match_array([{
-        :date => "11/09/2018 at 02:52PM",
-        :credit => nil,
-        :debit => 30,
-        :balance => -30
-      }])
+                                                    date: '11/09/2018 at 02:52PM',
+                                                    credit: nil,
+                                                    debit: 30,
+                                                    balance: -30
+                                                  }])
     end
   end
 
@@ -56,5 +58,4 @@ describe Account do
       expect(account.amount_owed).to eq 10
     end
   end
-
 end

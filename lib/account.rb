@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'transaction'
 
 class Account
@@ -13,10 +15,10 @@ class Account
     @transaction.deposit(amt)
     @balance += amt
     single_transaction = {
-      :date => display_time(Time.now),
-      :credit => amt,
-      :debit => nil,
-      :balance => @balance
+      date: display_time(Time.now),
+      credit: amt,
+      debit: nil,
+      balance: @balance
     }
     @transactions.push(single_transaction)
   end
@@ -25,10 +27,10 @@ class Account
     @transaction.withdraw(amt)
     @balance -= amt
     single_transaction = {
-      :date => display_time(Time.now),
-      :credit => nil,
-      :debit => amt,
-      :balance => @balance
+      date: display_time(Time.now),
+      credit: nil,
+      debit: amt,
+      balance: @balance
     }
     @transactions.push(single_transaction)
   end
@@ -42,19 +44,18 @@ class Account
   end
 
   def show
-    puts "  Date ||" + "  Credit ||" + "  Debit ||" + "  Balance "
-    @transactions.reverse.each do |transaction|
-      puts "  #{transaction[:date]} ||" +
-        "  #{transaction[:credit]} ||" +
-        "  #{transaction[:debit]} ||" +
-        "  #{transaction[:balance]} "
+    puts '  Date ||' + '  Credit ||' + '  Debit ||' + '  Balance '
+    @transactions.reverse_each do |transaction|
+      puts "  #{transaction[:date]} ||" \
+           "  #{transaction[:credit]} ||" \
+           "  #{transaction[:debit]} ||" \
+           "  #{transaction[:balance]} "
     end
   end
 
   private
 
   def display_time(time)
-    time.strftime("%d/%m/%Y at %I:%M%p")
+    time.strftime('%d/%m/%Y at %I:%M%p')
   end
-
 end

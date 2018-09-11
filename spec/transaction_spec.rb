@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'transaction'
 
 describe Transaction do
@@ -12,7 +14,7 @@ describe Transaction do
     end
 
     it 'raises an error if you attempt to deposit a negative amount' do
-      expect{ transaction.deposit(-10) }.to raise_error(ArgumentError)
+      expect { transaction.deposit(-10) }.to raise_error(ArgumentError)
     end
 
     it 'ensures that we deposit to 2 decimal places' do
@@ -42,7 +44,7 @@ describe Transaction do
 
       it 'is able to withdraw less than the full amount of credit' do
         transaction.withdraw(15)
-        expect(transaction.credit).to eq 50-15
+        expect(transaction.credit).to eq 50 - 15
       end
 
       it 'is able to withdraw more than the current credit' do
@@ -53,9 +55,8 @@ describe Transaction do
 
       max_debit = Transaction::MAX_DEBIT
       it 'is unable to withdraw more than the max limit' do
-        expect{ transaction.withdraw(max_debit + 51) }.to raise_error "Error: Unable to have a debit over £#{max_debit}. Your current credit is £#{transaction.credit}."
+        expect { transaction.withdraw(max_debit + 51) }.to raise_error "Error: Unable to have a debit over £#{max_debit}. Your current credit is £#{transaction.credit}."
       end
     end
   end
-
 end
