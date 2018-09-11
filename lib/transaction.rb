@@ -8,12 +8,9 @@ class Transaction
   end
 
   def deposit(amt)
+    fail ArgumentError.new("Please deposit a positive amount.") if amt.negative?
     amt = amt.round(2)
-    if amt.positive?
-      @credit += amt
-    else
-      raise ArgumentError.new("Please deposit a positive amount.")
-    end
+    @credit += amt
   end
 
   def withdraw(amt)
@@ -26,8 +23,14 @@ class Transaction
       @debit += amt - @credit
       @credit = 0
     else
-      raise ArgumentError.new("Error: Unable to withdraw over £#{MAX_DEBIT} of your current credit (£#{@credit}).")
+      raise ArgumentError.new("Error: Unable to have a debit over £#{MAX_DEBIT}. Your current credit is £#{@credit}.")
     end
+  end
+
+  private
+
+  def display_time(time)
+    time.strftime("%d/%m/%Y at %I:%M%p")
   end
 
 end

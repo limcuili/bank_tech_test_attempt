@@ -53,11 +53,17 @@ describe Transaction do
 
       max_debit = Transaction::MAX_DEBIT
       it 'is unable to withdraw more than the max limit' do
-        expect{ transaction.withdraw(max_debit + 51) }.to raise_error "Error: Unable to withdraw over £#{max_debit} of your current credit (£#{transaction.credit})."
+        expect{ transaction.withdraw(max_debit + 51) }.to raise_error "Error: Unable to have a debit over £#{max_debit}. Your current credit is £#{transaction.credit}."
       end
-
     end
-
   end
+
+  # I tested the below before making the method private. This test will be deleted in later commits.
+  # describe '#display_time' do
+  #   it 'displays the time neatly' do
+  #     allow(Time).to receive(:now).and_return(Time.new(2018,9,11,14,52,12))
+  #     expect(transaction.display_time(Time.now)).to eq "11/09/2018 at 02:52PM"
+  #   end
+  # end
 
 end
