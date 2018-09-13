@@ -21,15 +21,15 @@ Did not understand what credit and debit is, so the transaction's credit and deb
 This week is quite messy for me, with job searches, visa applications, and prepping for my Masters programme.  
 Lesson of the week: My thought process gets quite haphazard when I'm not focused on one task.  
 
-### Issues with this code:  
+### Issues with this code:  
 :bangbang: Tight coupling  
 :bangbang: Duplication of concerns  
 :bangbang: Seperation of concerns (there should not exist business logic and presentation logic in Account class)  
 :bangbang: Encapsulation (there should not exists an attribute reader for account.transactions)  
-:heavy_exclamation_mark: Specs test states not behaviour
+:heavy_exclamation_mark: Specs test states not behaviour  
 :heavy_exclamation_mark: Commits not descriptive enough
 
-### What I could do better
+### What I could do better
 - Take some time before I start the project to stop and plan out my project.
 - Plan out my tests before planning my code.
 - Refactor as I go
