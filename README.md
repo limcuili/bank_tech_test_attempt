@@ -1,20 +1,39 @@
 # bank_tech_test
 
-Pretty much did this in one afternoon. rubocop not passing due to long lines; I'll come back to that.  
-Did not understand what credit and debit is, so the transaction's credit and debit may be confusing.  
-Back onto job applications for me, byeeee.  
+Note that the specifications for this projects are written at the bottom of this README  
 
 ## Get it working
-1. Clone this repo  
-2. 'bundle install'  
-3. Go to 'irb' and play around  
-
+1. Clone this repo to your local machine  
+2. Move into repo directory: 'cd bank_tech_test_attempt'  
+3. Install dependencies: 'bundle install'  
+4. Boot up interactive ruby: 'irb'
+5. Require relevant files: 'require './lib/account''
+6. Play around in irb, beginning with 'account = Account.new"
 
 ## Run Tests
 1. Check that I've tested my code with RSpec: in your terminal, enter 'rspec'.  
-2. Check coverage with SimpleCov: open up coverage/index.html in your browser and check out what tests I've missed so far.  
+2. Check coverage with SimpleCov: open up coverage/index.html in your browser and check out what tests I've missed so far.
 
+## My Reflections
+Pretty much did this in one afternoon in a rush.  
+Did not understand what credit and debit is, so the transaction's credit and debit may be confusing.  
 
+This week is quite messy for me, with job searches, visa applications, and prepping for my Masters programme.  
+Lesson of the week: My thought process gets quite haphazard when I'm not focused on one task.  
+
+### Issues with this code:  
+:bangbang: Tight coupling  
+:bangbang: Duplication of concerns  
+:bangbang: Seperation of concerns (there should not exist business logic and presentation logic in Account class)  
+:bangbang: Encapsulation (there should not exists an attribute reader for account.transactions)  
+:heavy_exclamation_mark: Specs test states not behaviour
+:heavy_exclamation_mark: Commits not descriptive enough
+
+### What I could do better
+- Take some time before I start the project to stop and plan out my project.
+- Plan out my tests before planning my code.
+- Refactor as I go
+  
 ## Specification
 
 ### Requirements
